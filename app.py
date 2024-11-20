@@ -3,7 +3,7 @@ import pandas as pd
 
 # Dummy Data for Movies and Similarity
 movies = pd.DataFrame({
-    'title': ['Movie A', 'Movie B', 'Movie C', 'Movie D', 'Movie E', 'Movie F'],
+    'title': ['Avatar', 'Spectre', 'Dark Knight', 'Spiderman 3', 'Tangled', 'Man of Steel'],
     'movie_id': [101, 102, 103, 104, 105, 106]
 })
 
