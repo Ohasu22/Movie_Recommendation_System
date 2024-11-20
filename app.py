@@ -25,8 +25,8 @@ def recommend(movie):
 
 
 st.header('Movie Recommender System')
-movies = pickle.load(open('C:/Users/Ojas Gharde/Downloads/movie-recommender-system-tmdb-dataset-main/movie-recommender-system-tmdb-dataset-main/movie_list.pkl','rb'))
-similarity = pickle.load(open('C:/Users/Ojas Gharde/Downloads/movie-recommender-system-tmdb-dataset-main/movie-recommender-system-tmdb-dataset-main/similarity.pkl','rb'))
+movies = pickle.load(open('./movie_list.pkl','rb'))
+similarity = pickle.load(open('./similarity.pkl','rb'))
 
 movie_list = movies['title'].values
 selected_movie = st.selectbox(
