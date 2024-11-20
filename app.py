@@ -1,8 +1,7 @@
 import streamlit as st
-import requests
 import pandas as pd
 
-# Dummy Data
+# Dummy Data for Movies and Similarity
 movies = pd.DataFrame({
     'title': ['Movie A', 'Movie B', 'Movie C', 'Movie D', 'Movie E', 'Movie F'],
     'movie_id': [101, 102, 103, 104, 105, 106]
@@ -17,7 +16,7 @@ similarity = [
     [0.3, 0.2, 0.4, 0.6, 0.8, 1],
 ]
 
-# Function to fetch poster (returns dummy URLs)
+# Function to fetch dummy posters
 def fetch_poster(movie_id):
     return f"https://via.placeholder.com/150?text=Movie+{movie_id}"
 
@@ -28,7 +27,7 @@ def recommend(movie):
     recommended_movie_names = []
     recommended_movie_posters = []
     for i in distances[1:6]:
-        # Dummy movie recommendations
+        # Dummy recommendations
         movie_id = movies.iloc[i[0]].movie_id
         recommended_movie_posters.append(fetch_poster(movie_id))
         recommended_movie_names.append(movies.iloc[i[0]].title)
@@ -38,15 +37,17 @@ def recommend(movie):
 # Streamlit App
 st.header('Movie Recommender System')
 
+# Dropdown for movie selection
 movie_list = movies['title'].values
 selected_movie = st.selectbox(
     "Type or select a movie from the dropdown",
     movie_list
 )
 
+# Display Recommendations
 if st.button('Show Recommendation'):
     recommended_movie_names, recommended_movie_posters = recommend(selected_movie)
-    col1, col2, col3, col4, col5 = st.columns(5)  # Updated to st.columns
+    col1, col2, col3, col4, col5 = st.columns(5)  # Updated for modern Streamlit
     with col1:
         st.text(recommended_movie_names[0])
         st.image(recommended_movie_posters[0])
