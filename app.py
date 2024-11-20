@@ -2,6 +2,8 @@ import pickle
 import streamlit as st
 import requests
 
+movies = pickle.load(open('movie_list.pkl', 'rb'))  # Path to your movie list pickle file
+similarity = pickle.load(open('similarity.pkl', 'rb'))
 def fetch_poster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}?api_key=922539e33083d36346ddeb4c4f51e7d5&language=en-US".format(movie_id)
     data = requests.get(url)
